@@ -23,4 +23,8 @@ export class TelegramService {
       return this.tg.initData;
     }
   }
+
+  ready(): void {
+    this.tg.ready();
+  }
 }
