@@ -9,7 +9,7 @@ import { userMock } from '../mocks/user.mock';
 export class TelegramService {
     private window;
     tg;
-    dummyResponse = true; 
+    dummyResponse = false; 
 
   constructor(@Inject(DOCUMENT) private _document: any) {
     this.window = this._document.defaultView;

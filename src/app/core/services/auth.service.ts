@@ -37,6 +37,7 @@ export class AuthService {
   
   auth(): void { // Observable
     const userData: WebAppUser | null  = this.telegramService.initData();
+    console.log(userData);
     if(userData) {
         // return this.http.post<any>("http", {}).pipe()
         this.setToken(this.tokenMock);
