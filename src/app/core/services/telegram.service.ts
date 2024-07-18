@@ -20,6 +20,9 @@ export class TelegramService {
     if(this.dummyResponse) {
       return userMock
     } else {
+      console.log("---");
+      console.log(this.tg.initDataUnsafe.user);
+      console.log("---");
       return this.tg.initData;
     }
   }
