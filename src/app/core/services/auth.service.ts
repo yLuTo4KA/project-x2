@@ -2,7 +2,7 @@ import { inject, Injectable, signal } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { TelegramService } from './telegram.service';
-import { WebAppUser } from '../models/webAppUser.model';
+import { webAppInitData } from '../models/webAppInitData.model';
 
 @Injectable({
   providedIn: 'root',
@@ -22,6 +22,10 @@ export class AuthService {
   constructor(private http: HttpClient) {
   }
 
+  getInitData(): webAppInitData {
+    return this.telegramService.initData();
+  }
+
   setToken(token: string): void {
     localStorage.setItem("token", token);
     this.tokenSubject.next(token);
@@ -36,7 +40,7 @@ export class AuthService {
   }
   
   auth(): void { // Observable
-    const userData: any = this.telegramService.initData();
+    const userData: any = this.getInitData();
     console.log(userData);
     if(userData && userData.trim() !== "") {
         // return this.http.post<any>("http", {}).pipe()

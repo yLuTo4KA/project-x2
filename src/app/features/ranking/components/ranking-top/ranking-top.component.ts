@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { webAppInitData } from 'src/app/core/models/webAppInitData.model';
+import { AuthService } from 'src/app/core/services/auth.service';
 import { PaymentService } from 'src/app/core/services/payment.service';
 
 interface LabeledPrice {
@@ -6,7 +8,7 @@ interface LabeledPrice {
   amount: number,
 }
 interface InvoiceData {
-  chat_id: number | string,
+  chat_id: string,
   message_thread_id?: number,
   title: string,
   description: string,
@@ -26,19 +28,22 @@ interface InvoiceData {
 
 
 export class RankingTopComponent implements OnInit {
-  
-
+  initData!: webAppInitData
   paymentData: InvoiceData = {
-    chat_id: '1231',
+    chat_id: "@TelegraaaamC_bot",
     title: 'buy 100 stars',
     description: 'buy 100',
     payload: 'load',
     currency: 'XTR',
     prices: [{label: "one", amount: 100}]
   }
-  constructor(private paymentService: PaymentService) { }
+
+  constructor(private paymentService: PaymentService, private authService: AuthService) { 
+    this.initData = this.authService.getInitData();
+  }
 
   ngOnInit() {
+    
   }
 
 

@@ -1,4 +1,4 @@
-import { WebAppUser } from "../models/webAppUser.model";
+import { WebAppUser } from "../models/webAppInitData.model";
 
 export const userMock: WebAppUser = {
     id: 0,
