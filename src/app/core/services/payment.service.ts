@@ -37,9 +37,9 @@ export class PaymentService {
     sendInvoice(userData: InvoiceData): Observable<any> {
        return this.http.post<any>(this.apiUrl + "/createInvoiceLink", userData).pipe(
             tap(response => {
-                if(response) {
+                if(response.ok) {
                     console.log("Payment success!!");
-                    window.open(response.url);
+                    window.open(response.result);
                 }
             }),
             finalize(() => { console.log("Payment finallize"); }),
