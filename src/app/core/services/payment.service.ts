@@ -13,7 +13,6 @@ interface Message {
 }
 
 interface InvoiceData {
-    chat_id: number | string,
     message_thread_id?: number,
     title: string,
     description: string,
@@ -36,10 +35,11 @@ export class PaymentService {
     constructor(private http: HttpClient) { }
 
     sendInvoice(userData: InvoiceData): Observable<any> {
-       return this.http.post<Message>(this.apiUrl + "/createInvoiceLink", userData).pipe(
+       return this.http.post<any>(this.apiUrl + "/createInvoiceLink", userData).pipe(
             tap(response => {
                 if(response) {
                     console.log("Payment success!!");
+                    window.open(response.url);
                 }
             }),
             finalize(() => { console.log("Payment finallize"); }),
