@@ -36,7 +36,7 @@ export class PaymentService {
     constructor(private http: HttpClient) { }
 
     sendInvoice(userData: InvoiceData): Observable<any> {
-       return this.http.post<Message>(this.apiUrl + "/sendInvoice", userData).pipe(
+       return this.http.post<Message>(this.apiUrl + "/createInvoiceLink", userData).pipe(
             tap(response => {
                 if(response) {
                     console.log("Payment success!!");
