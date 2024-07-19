@@ -8,7 +8,7 @@ interface LabeledPrice {
   amount: number,
 }
 interface InvoiceData {
-  chat_id: string,
+  chat_id: string | number,
   message_thread_id?: number,
   title: string,
   description: string,
@@ -30,7 +30,7 @@ interface InvoiceData {
 export class RankingTopComponent implements OnInit {
   initData!: webAppInitData
   paymentData: InvoiceData = {
-    chat_id: "@TelegraaaamC_bot",
+    chat_id: 901201138,
     title: 'buy 100 stars',
     description: 'buy 100',
     payload: 'load',
