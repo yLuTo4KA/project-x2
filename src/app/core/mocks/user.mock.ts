@@ -1,7 +1,11 @@
-import { WebAppUser } from "../models/webAppInitData.model";
+import { webAppInitData } from "../models/webAppInitData.model";
 
-export const userMock: WebAppUser = {
-    id: 0,
-    first_name: "Danil",
-    username: "2ytka2"
+export const userMock: webAppInitData = {
+    user: {
+        name: "danil",
+        username: "lolka",
+    },
+    chat_instance: "kfjdshfjsdkfs",
+    auth_date: 0,
+    hash: ""
 }
