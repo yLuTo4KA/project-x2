@@ -3,6 +3,7 @@ import { webAppInitData } from 'src/app/core/models/webAppInitData.model';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { PaymentService } from 'src/app/core/services/payment.service';
 
+
 interface LabeledPrice {
   label: string,
   amount: number,

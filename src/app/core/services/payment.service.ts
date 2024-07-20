@@ -1,6 +1,8 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, finalize, Observable, tap, throwError } from 'rxjs';
+import { initUtils } from '@telegram-apps/sdk';
+const utils = initUtils();
 
 interface LabeledPrice {
     label: string,
@@ -39,7 +41,7 @@ export class PaymentService {
             tap(response => {
                 if(response.ok) {
                     console.log("Payment success!!");
-                    window.open(response.result);
+                    utils.openTelegramLink(response.result);
                 }
             }),
             finalize(() => { console.log("Payment finallize"); }),
