@@ -42,7 +42,7 @@ export class AuthService {
   auth(): void { // Observable
     const userData: any = this.getInitData();
     console.log(userData);
-    if(userData && userData.trim() !== "") {
+    if(userData && userData !== "") {
         // return this.http.post<any>("http", {}).pipe()
         this.setToken(this.tokenMock);
     }
